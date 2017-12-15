@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-sm bg-dark fixed-bottom" style="height: 78px;">
+
+  <!-- song details at the left side -->
+  <div class="col-md-3 d-none d-md-block default">
+
+    <div class="current-song-wrapper">
+      <div class="row ">
+        <div class="col-md-4 default">
+          <!-- <img href="/images/nature.jpg"> -->
+          <img class="img-fluid" style="height: 72px; padding: 2px;" src="/images/nature.jpg">
+        </div>
+        <div class="col-md-8">
+          <h5>Tu Safar Mera</h5>
+          <p>A Dil E Mushkil</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- song control panel at the middle-->
+  <div class="col-md-7" style="height: 78px;">
+
+    <audio id="audio" ></audio>
+
+    <div class="interactive-pane">
+          <div class="controls">
+              <div class="player-buttons">
+                  <i class="fa fa-repeat clickable backward-icon inactive" title="Repeat" aria-hidden="true"></i>
+                  <i class="fa fa-step-backward clickable backward-icon" title="Previous" aria-hidden="true"></i>
+                  <i style="width: 30px;"class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+                  <i class="fa fa-step-forward clickable backward-icon" title="Next" aria-hidden="true"></i>
+                  <i class="fa fa-random clickable backward-icon inactive" title="Shuffle" aria-hidden="true"></i>
+              </div>
+          </div>
+
+          <!-- this is a progress bar which shows the precentage completion of the songs.
+          you can also increase the current time of the song by clicking on the progress bar -->
+          <div class="progress-wrapper" >
+              <span class="time-elapsed">0:00 </span>
+              <div class="player-progress" style="background: #f6f6f6">
+                  <div class="progress-filled inactive"></div>
+              </div>
+              <span class="song-duration">0:00</span>
+          </div>
+      </div>
+      <!-- Ending of interactive pane -->
+
+  </div>
+
+  <!-- my account activity  -->
+  <div class="col-md-2 d-none d-md-block" style="height: 78px;">
+
+    <!-- this is a volume slider which change volume of the song -->
+      <div class="responsive-pane">
+
+          <input class="hidden" id="vol-control" type="range" min="0" max="100" step="1">
+          <i class="fa fa-volume-up" aria-hidden="true" style="margin: 0 15px 0 16px; width: 20px;"></i>
+      </div>
+
+  </div>
+
+
+</nav>

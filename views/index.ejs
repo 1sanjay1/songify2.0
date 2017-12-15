@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"></link>
+
+    <style>
+
+      .img-style {
+        width: 100%;
+        height: 150px;
+        opacity: 0.7;
+      }
+      .each-song-item .song-category .table .td{
+        font-size: 0.5rem!important;
+      }
+
+    </style>
+
+
+  </head>
+
+
+  <body>
+
+    <div class="container-fluid default" style="padding: 78px 0;">
+
+      <!-- Navigation bar at the top of page -->
+      <% include templates/fixedMainHeader.ejs %>
+
+
+
+      <!-- Middle Content  -->
+      <div class="row songs-category">
+        <div class="col-md-2"></div>
+
+
+        <div class="col-md-8 default" style="border: 1px solid yellow; margin-top: 10px;">
+
+          <% for(var category = 0; category < 4; category++) { %>
+
+            <div class="song-category" style="border: 2px solid yellow;">
+              <h4>Lestest Songs</h4>
+              <div class="row" style="width: 100%;">
+                  <div class="col-md-3 animate-image" style="width: 100%; border:1px solid red; padding: 7px;"><img class="img-fluid img-style" src="https://www.planwallpaper.com/static/images/6775415-beautiful-images.jpg"></div>
+                  <div class="col-md-3 animate-image" style="width: 100%; border:1px solid red; padding: 7px;"><img class="img-fluid img-style" src="https://dummyimage.com/200x150"></div>
+                  <div class="col-md-3 animate-image" style="width: 100%; border:1px solid red; padding: 7px;"><img class="img-fluid img-style" src="https://dummyimage.com/300x400"></div>
+                  <div class="col-md-3 animate-image" style="width: 100%; border:1px solid red; padding: 7px;"><img class="img-fluid img-style" src="https://dummyimage.com/150x150"></div>
+              </div>
+            </div>
+            <hr style="background: #f6f6f6;">
+
+          <% } %>
+
+        </div>
+
+
+        <div class="col-md-2"></div>
+      </div>
+
+
+      <!-- show all the songs of a perticular category -->
+      <div class="row each-song-item">
+        <div class="col-md-2"></div>
+
+
+        <div class="col-md-8 default" style="margin-top: 10px;">
+
+
+        </div>
+
+
+        <div class="col-md-2"></div>
+      </div>
+
+
+
+
+
+
+
+
+      <!-- main footer -->
+      <% include templates/fixedMainFooter %>
+      <!-- End of the main footer -->
+
+    </div>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <!-- Custom jQuery -->
+    <script src="/javascripts/main.js"></script>
+    <script src="/javascripts/animation.js"></script>
+    <script src="/javascripts/ajax.js"></script>
+
+  </body>
+</html>

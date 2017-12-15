@@ -1,0 +1,151 @@
+*, body, html,p, .default, .row {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* font: 20px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  background: #282828;
+  color: rgba(255,255,255,.5);
+}
+
+#logo {
+  color: orange;
+  font-size: 35px;
+  font-family: 'Audiowide', Arial;
+}
+
+.navbar-collapse .navbar-nav .nav-item a, p {
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 700px) {
+
+}
+
+
+
+/* user interaction pannel */
+.player-buttons {
+    display:flex;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.left.floated {
+    float: left;
+}
+.right.floated {
+    float: right;
+    font-size: 1.2rem;
+}
+
+.clickable {
+    cursor: pointer;
+    color: white;
+}
+.error {
+    border: 2px solid red;
+    outline-color: red;
+}
+.play-icon{
+
+    margin:0px 30px;
+}
+.forward-icon{
+    font-size: 20px;
+    vertical-align: middle;
+    margin:0px 30px;
+}
+.backward-icon{
+    font-size: 20px;
+    vertical-align: middle;
+    margin:0px 30px;
+}
+.inactive{
+    color: #aaa;
+}
+.progress-wrapper {
+    margin-top: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-wrapper span {
+    color: #959595;
+}
+
+.player-progress {
+    height: 3px;
+    width: 650px;
+    background-color: #3d3d3d;
+    border-radius: 4px;
+    margin-right: 6px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+.player-progress:hover{
+    height:8px;
+}
+.progress-filled {
+    background-color: orange;
+    height:inherit;
+    border-radius: 4px;
+    width: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/*volume ka location setting*/
+.responsive-pane{
+    position: fixed;
+    right: 0;
+    bottom:0;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.responsive-pane input[type=range]{
+    -webkit-appearance: slider-vertical;
+    width:50px;
+    height:120px;
+}
+
+input[type=range]{
+    cursor: pointer;
+}
+.fa-volume-up{
+    color: orange;
+}
+.fa-volume-down{
+    color: orange;
+}
+.fa-volume-off{
+    color: orange;
+}
+.responsive-pane span{
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+
+/********************** style for animation ***********************************/
+
+.img-style:hover {
+
+}
+
+.animate-image {
+
+}
+
+/********************* End Aminmation *****************************************/
