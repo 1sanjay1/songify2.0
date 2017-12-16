@@ -1,3 +1,16 @@
+var currentSong = 0;
+
+////Initialization of the app with default settings
+window.onload = function() {
+
+  IntervalId = 1; //default Initialization of interval id
+
+  updateCurrentTime(0);
+  var audio = $('#audio');
+  var song  = '/songs/' + currentSongPlayList[currentSong];
+  audio.attr('src', song);
+
+
 /*this function is fired whenever a song is clicked. It does two things: play and pause the song and change the icon.
 if song is already running then song will be paused otherwise played */
 function toggleSong(){
@@ -114,6 +127,19 @@ $('.fa-random').on('click', function() {
   }
 });
 
+//this event will fire when user clicks on the song row itself in the song list
+$('.song_list table tbody tr').on('click', function() {
+  var currentSong = $(this).find(':first-child').text() - 1;
+  var song  = '/songs/' + currentSongPlayList[currentSong];
+  // updateAudioSource(song);
+  var audio = document.querySelector('audio');
+  var currentSongSource = audio.src;
+
+  if (currentSongSource.search(song) == -1) {
+    audio.src = song;
+  }
+  toggleSong();
+});
 
 //function to manage the play and pause functionality using the spacebar(keyboard keys)
 $('body').on('keypress',function(event){
@@ -284,18 +310,7 @@ function setVolume(){
 /*````````````````````````````````````````````````````````````````````````````*/
 /*````````````````````````````````````````````````````````````````````````````*/
 
-var currentSongPlayList = ['Piya O Re Piya.mp3', 'love-me-like.mp3','loveaajkal05.mp3','loveaajkal04.mp3'];
-var currentSong = 0;
 
-////Initialization of the app with default settings
-window.onload = function() {
-
-  IntervalId = 1; //default Initialization of interval id
-
-  updateCurrentTime(0);
-  var audio = $('#audio');
-  var song  = '/songs/' + currentSongPlayList[currentSong];
-  audio.attr('src', song);
 
 }
 
