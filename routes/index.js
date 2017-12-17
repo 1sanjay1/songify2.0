@@ -38,6 +38,7 @@ var songs = [{
     'image' : 'song4.jpg'
 }];
 
+console.log("request to the server ...");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

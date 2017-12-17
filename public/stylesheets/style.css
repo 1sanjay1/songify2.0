@@ -172,4 +172,15 @@ input[type=range]{
   position: absolute; bottom: 0;
 }
 
+@media only screen and (max-width: 768px) {
+
+  #mobile-device {
+    width: 50%;
+  }
+  #mobile-device a.anchor{
+    font-size: 12px;
+  }
+
+}
+
 /********************* End Aminmation *****************************************/

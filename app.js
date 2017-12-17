@@ -25,5 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //load controller according to the url
 app.use('/', index);
 
+
 app.listen(3000);
 console.log("Now Server has been started successfully...");

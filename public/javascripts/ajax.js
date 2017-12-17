@@ -6,3 +6,25 @@
 //   });
 //
 // });
+
+$(document).ready(function() {
+
+    $('.song-list .song-item .single-song > div').on('click', function() {
+        var title = $(this).find('a').text().replace(/ /g, "-");
+        console.log(title);
+
+        $(function() {
+            $.ajax({
+                url: '/hindi/album/' + title,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                  console.log(data);
+                }
+            });
+
+       });
+
+    });
+
+});

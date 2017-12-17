@@ -1,0 +1,43 @@
+<div class="song_list_wrapper">
+
+  <div class="movie_title">
+      <div class="movie_poster">
+        <img class="img-fluid img-style rounded" src="https://a10.gaanacdn.com/images/albums/91/2030791/crop_175x175_1513067280_2030791.jpg">
+      </div>
+      <div class="song_details" style="">
+        <h4>Tiger Zinda Hai</h4>
+        <p><small>Atif Aslam</small></p>
+
+        <div class="play-button">
+            <button type="button" class="btn btn-outline-secondary btn-small" style="cursor: pointer;">
+              <span class="btn_text"><small>Play All</small></span>
+              <span class="btn_icon"><small><i class="fa fa-play play-icon" aria-hidden="true"></i></small></span>
+            </button>
+        </div>
+      </div>
+  </div>
+
+  <div class="song_list" style="font-size: 12px;">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% for(var song = 0; song < songObj.length; song++) { %>
+            <tr style="cursor: pointer;">
+                <td class="songNumber"><%= song + 1 %></td>
+                <td><%= songObj[song] %></td>
+                <td>Atif Aslam</td>
+                <td>5:55</td>
+            </tr>
+          <% } %>
+        </tbody
+    </table>
+  </div>
+
+</div>
