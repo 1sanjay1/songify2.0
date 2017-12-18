@@ -1,7 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var bodyParser = require('body-parser');
+var urlencodeParser = bodyParser.urlencoded({extended: false});
 
 var currentSongPlayList = ['Piya-O-Re-Piya.mp3', 'love-me-like.mp3','loveaajkal05.mp3','loveaajkal04.mp3'];
+
+var second = ['loveaajkal05.mp3','loveaajkal04.mp3'];
 
 //var songs = JSON.stringify(currentSongPlayList);
 
@@ -38,16 +42,34 @@ var songs = [{
     'image' : 'song4.jpg'
 }];
 
-console.log("request to the server ...");
-
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: "form", songObj : currentSongPlayList });
+// router.get('/', function(req, res, next) {
+//
+// });
+
+
+router.use(function(req, res) {
+
+    //spilt the url to get the information about the songs
+    var reqURLObj = req.url.split('/');
+
+    var language = reqURLObj[1];
+    var page = reqURLObj[2];
+    var title = reqURLObj[3];
+
+    if( req.method == 'GET' && req.url == '/') {
+        res.render('index', { title: "form", songObj : currentSongPlayList });
+    }
+    else if( req.method == 'GET' && page == 'album') {
+        res.render('playlist', { songObj : currentSongPlayList });
+    }
+    else {
+        res.render('dummy',{msg : "error"});
+        res.end();
+    }
+
 });
 
-router.post('/', function(req, res, next) {
-  //res.render('index', { title: 'Form' });
-});
 
 
 

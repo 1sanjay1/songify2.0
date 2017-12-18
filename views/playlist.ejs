@@ -63,36 +63,6 @@
     <div class="container-fluid default" style="padding: 78px 0;">
 
 
-      <!-- Middle Content  -->
-      <div class="row songs-category hidden">
-        <div class="col-md-2"></div>
-
-
-        <div class="col-md-8 default" style="border: 1px solid yellow; margin-top: 10px;">
-
-          <% for(var category = 0; category < 4; category++) { %>
-
-            <div class="song-category" style="border: 2px solid yellow;">
-              <h4>Lestest Songs</h4>
-              <div class="row" style="width: 100%;">
-                  <div class="col-md-3 animate-image" style="width: 100%; border:1px solid red; padding: 7px;"><img class="img-fluid img-style" src="https://www.planwallpaper.com/static/images/6775415-beautiful-images.jpg"></div>
-                  <div class="col-md-3 animate-image" style="width: 100%; border:1px solid red; padding: 7px;"><img class="img-fluid img-style" src="https://dummyimage.com/200x150"></div>
-                  <div class="col-md-3 animate-image" style="width: 100%; border:1px solid red; padding: 7px;"><img class="img-fluid img-style" src="https://dummyimage.com/300x400"></div>
-                  <div class="col-md-3 animate-image" style="width: 100%; border:1px solid red; padding: 7px;"><img class="img-fluid img-style" src="https://dummyimage.com/150x150"></div>
-              </div>
-            </div>
-            <hr style="background: #f6f6f6;">
-
-          <% } %>
-
-        </div>
-
-
-        <div class="col-md-2"></div>
-      </div>
-      <!-- Ending of middle content -->
-
-
       <!-- show all the songs of a perticular category -->
       <div class="row each-song-item">
         <div class="col-md-2"></div>
@@ -100,46 +70,51 @@
         <div class="col-md-8 default" style="margin-top: 0px; border: 1px solid #f6f6f6;">
           <!-- song playlist : show all the songs after selecting a perticular album or category -->
 
-          <div class="song_list_wrapper dispatch">
+          <div class="song_list_wrapper">
 
-              <!-- top of the song list where links are given -->
-              <div class="list-header">
-                  <div class="left-side">
-                      <span><a href="#">New Releases</a></span>
-                      <span><a href="#">Top Lists</a></span>
-                      <span><a href="#">Featured</a></span>
+            <div class="movie_title">
+                <div class="movie_poster">
+                  <img class="img-fluid img-style rounded" src="https://a10.gaanacdn.com/images/albums/91/2030791/crop_175x175_1513067280_2030791.jpg">
+                </div>
+                <div class="song_details" style="">
+                  <h4>Tiger Zinda Hai</h4>
+                  <p><small>Atif Aslam</small></p>
+
+                  <div class="play-button">
+                      <button type="button" class="btn btn-outline-secondary btn-small" style="cursor: pointer;">
+                        <span class="btn_text"><small>Play All</small></span>
+                        <span class="btn_icon"><small><i class="fa fa-play play-icon" aria-hidden="true"></i></small></span>
+                      </button>
                   </div>
-                  <div class="right-side" style="position: absolute; right: 0;">
-                      <span><a href="#">Hindi</a></span>
-                  </div>
-              </div>
-              <hr style="background: rgba(255,255,255,0.5);">
-              <!-- end top of the list  -->
+                </div>
+            </div>
 
-              <div class="song-list">
-                  <div class="song-item">
-
-                      <div class="all-songs">
-                        <% for(var i = 0; i < 50; i++) { %>
-
-                          <div class="single-song" id="mobile-device" >
-                              <div style="cursor: pointer">
-                                <img class="rounded" src="https://dummyimage.com/150x150" style="width: 100%; max-height: 150px;">
-                                <p><strong><a href="/album">Tiger Zinda Hai</a></strong></p>
-                                <p><small>Vishal-Shekhar</small></p>
-                              </div>
-                          </div>
-
-                        <% } %>
-
-                      </div>
-
-                  </div>
-              </div>
+            <div class="song_list" style="font-size: 12px;">
+              <table class="table table-hover">
+                  <thead>
+                      <tr>
+                          <th>#</th>
+                          <th>Title</th>
+                          <th>Artist</th>
+                          <th>Duration</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var song = 0; song < songObj.length; song++) { %>
+                      <tr style="cursor: pointer;">
+                          <td class="songNumber"><%= song + 1 %></td>
+                          <td><%= songObj[song] %></td>
+                          <td>Atif Aslam</td>
+                          <td>5:55</td>
+                      </tr>
+                    <% } %>
+                  </tbody
+              </table>
+            </div>
 
           </div>
 
-          <% include templates/listOfSongs.ejs %>
+          <!-- <% include templates/listOfSongs.ejs %> -->
         </div>
 
         <div class="col-md-2"></div>
@@ -161,17 +136,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-    <script src="/javascripts/main.js"></script>
-
     <!-- get the objects from the server -->
     <script>
-      var songObjects = <%- JSON.stringify(songObj) %>;
-      setSongGlobalObject(songObjects);
+      var currentSongPlayList = <%- JSON.stringify(songObj) %>;
     </script>
 
     <!-- Custom jQuery -->
-    <script src="/javascripts/ajax.js"></script>
-
+    <!-- <script src="/javascripts/ajax.js"></script> -->
+    <script src="/javascripts/main.js"></script>
     <script src="/javascripts/animation.js"></script>
 
 

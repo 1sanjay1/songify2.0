@@ -1,5 +1,10 @@
 var currentSong = 0;
 
+function setSongGlobalObject(obj) {
+  currentSongPlayList = obj;
+  console.log("in main .js file = " + obj);
+}
+
 ////Initialization of the app with default settings
 window.onload = function() {
 
