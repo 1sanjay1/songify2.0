@@ -184,3 +184,67 @@ input[type=range]{
 }
 
 /********************* End Aminmation *****************************************/
+
+
+/******************** Header options like : New releases top songs languages **/
+.list-header {
+  display: flex;
+  position: relative;
+}
+.list-header .left-side span,
+.list-header .right-side span {
+  display: inline-block;
+  margin-right: 5px;
+}
+.list-header .left-side span a,
+.list-header .right-side span a  {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+}
+.list-header .left-side span a:hover,
+.list-header .right-side span a:hover  {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+.song_list_wrapper .song-list .song-item {
+    width: 100%;
+    height: 400px;
+}
+.single-song {
+    width: 12.5%;  float: left; padding: 10px;
+}
+.single-song a {
+    font-size: 10px;
+}
+.single-song p {
+    font-size: 10px;
+}
+/******************** End ****************************************************/
+
+
+
+
+
+
+/****************** Login Models **********************************************/
+.modal-dialog {
+    width: 300px;
+}
+.modal-footer {
+    height: 70px;
+    margin: 0;
+}
+.modal-footer .btn {
+    font-weight: bold;
+}
+.modal-footer .progress {
+    display: none;
+    height: 32px;
+    margin: 0;
+}
+.input-group-addon {
+    color: #fff;
+    background: #3276B1;
+}
+/********************** end ****************************************************/
+/* https://bootsnipp.com/snippets/featured/progressive-button-on-login */

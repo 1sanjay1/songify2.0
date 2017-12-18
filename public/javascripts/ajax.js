@@ -2,7 +2,16 @@ $(document).ready(function() {
 
     $('.song-list .song-item .single-song > div').on('click', function() {
 
-          var title = $(this).find('a').text().replace(/ /g, '-');
+          var title = $(this).find('a').text().split(/\s+/); //remove spaces
+
+          var temp = [];
+          for(var i = 0; i < title.length ; i++) {
+              if(title[i] != "") {
+                temp.push(title[i]);  //store tokens without spaces
+              }
+          }
+
+          title = temp.join('-'); //add all token with '-' separated
 
           var ref = $(this).find('a').attr('href');
 

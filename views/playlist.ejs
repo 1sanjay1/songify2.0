@@ -5,55 +5,14 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom css -->
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"></link>
-
-    <style>
-        .list-header {
-          display: flex;
-          position: relative;
-        }
-        .list-header .left-side span,
-        .list-header .right-side span {
-          display: inline-block;
-          margin-right: 5px;
-        }
-        .list-header .left-side span a,
-        .list-header .right-side span a  {
-          color: rgba(255, 255, 255, 0.5);
-          font-size: 12px;
-        }
-        .list-header .left-side span a:hover,
-        .list-header .right-side span a:hover  {
-          color: rgba(255, 255, 255, 0.7);
-          text-decoration: none;
-        }
-        .song_list_wrapper .song-list .song-item {
-            width: 100%;
-            height: 400px;
-        }
-        .single-song {
-            width: 12.5%;  float: left; padding: 10px;
-        }
-        .single-song a {
-            font-size: 10px;
-        }
-        .single-song p {
-            font-size: 10px;
-        }
-    </style>
-
-
   </head>
-
 
   <body>
 
@@ -72,13 +31,29 @@
 
           <div class="song_list_wrapper">
 
+
+            <!-- top of the song list where links are given -->
+            <div class="list-header">
+                <div class="left-side">
+                    <span><a href="#">New Releases</a></span>
+                    <span><a href="#">Top Lists</a></span>
+                    <span><a href="#">Featured</a></span>
+                </div>
+                <div class="right-side" style="position: absolute; right: 0;">
+                    <span><a href="#">Hindi</a></span>
+                </div>
+            </div>
+            <hr style="background: rgba(255,255,255,0.5);">
+            <!-- end top of the list  -->
+
+
             <div class="movie_title">
                 <div class="movie_poster">
-                  <img class="img-fluid img-style rounded" src="https://a10.gaanacdn.com/images/albums/91/2030791/crop_175x175_1513067280_2030791.jpg">
+                  <img class="img-fluid img-style rounded" src="<%= songObj[0].imageURL %>">
                 </div>
                 <div class="song_details" style="">
-                  <h4>Tiger Zinda Hai</h4>
-                  <p><small>Atif Aslam</small></p>
+                  <h4> <%= songObj[0].title %></h4>
+                  <p><small><%= songObj[0].director %></small></p>
 
                   <div class="play-button">
                       <button type="button" class="btn btn-outline-secondary btn-small" style="cursor: pointer;">
@@ -100,15 +75,15 @@
                       </tr>
                   </thead>
                   <tbody>
-                    <% for(var song = 0; song < songObj.length; song++) { %>
+                    <% for(var song = 1; song < songObj.length; song++) { %>
                       <tr style="cursor: pointer;">
-                          <td class="songNumber"><%= song + 1 %></td>
-                          <td><%= songObj[song] %></td>
-                          <td>Atif Aslam</td>
-                          <td>5:55</td>
+                          <td class="songNumber"><%= song %></td>
+                          <td><%= songObj[song].song_title %></td>
+                          <td><%= songObj[song].singer %></td>
+                          <td><%= songObj[song].duration %></td>
                       </tr>
                     <% } %>
-                  </tbody
+                  </tbody>
               </table>
             </div>
 
@@ -142,9 +117,8 @@
     </script>
 
     <!-- Custom jQuery -->
-    <!-- <script src="/javascripts/ajax.js"></script> -->
+    <script src="/javascripts/ajax.js"></script>
     <script src="/javascripts/main.js"></script>
-    <script src="/javascripts/animation.js"></script>
 
 
 

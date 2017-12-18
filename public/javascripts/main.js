@@ -1,19 +1,29 @@
-var currentSong = 0;
-
-function setSongGlobalObject(obj) {
-  currentSongPlayList = obj;
-  console.log("in main .js file = " + obj);
-}
+var currentSong = 1;
 
 ////Initialization of the app with default settings
 window.onload = function() {
 
-  IntervalId = 1; //default Initialization of interval id
+    IntervalId = 1; //default Initialization of interval id
 
-  updateCurrentTime(0);
-  var audio = $('#audio');
-  var song  = '/songs/' + currentSongPlayList[currentSong];
-  audio.attr('src', song);
+    updateCurrentTime(0);
+    var audio = $('#audio');
+    var song  = currentSongPlayList[currentSong].songURL;
+    audio.attr('src', song);
+    changeCurrentSongDetails();
+
+/*this function changes the current song details and show at bottom of the page
+in the left side */
+function changeCurrentSongDetails() {
+    console.log("currentSong = " + currentSong);
+    var song_title = currentSongPlayList[currentSong].song_title;
+    var imageURL = currentSongPlayList[0].imageURL;
+    var albumName = currentSongPlayList[0].title;
+
+    $('.current-song-wrapper .row img').attr('src', imageURL);
+    $('.current-song-wrapper .row .text-box .heading').html(albumName);
+    $('.current-song-wrapper .row .text-box .paragraph').html(song_title);
+
+}
 
 
 /*this function is fired whenever a song is clicked. It does two things: play and pause the song and change the icon.
@@ -29,26 +39,26 @@ function toggleSong(){
 }
 
 function playSong() {
-
-  var song = document.querySelector('audio');
-  $('.play-icon').removeClass('fa-play').addClass('fa-pause');//removes play icon and adds pause icon
-  song.play();
-  IntervalId = setInterval(function() {
-  updateCurrentTime();
-  },1000); //1000 represents time in milliseconds
+    var song = document.querySelector('audio');
+    $('.play-icon').removeClass('fa-play').addClass('fa-pause');//removes play icon and adds pause icon
+    song.play();
+    IntervalId = setInterval(function() {
+    updateCurrentTime();
+    },1000); //1000 represents time in milliseconds
 }
+
 function pauseSong() {
-  var song = document.querySelector('audio');
-  $('.play-icon').removeClass('fa-pause').addClass('fa-play');//removes pause icon and adds play icon
-  song.pause();
-  clearInterval(IntervalId);
+    var song = document.querySelector('audio');
+    $('.play-icon').removeClass('fa-pause').addClass('fa-play');//removes pause icon and adds play icon
+    song.pause();
+    clearInterval(IntervalId);
 }
 
 //update audio source
 function updateAudioSource(song) {
-  var audio = $('#audio');
-  audio.attr('src', song);
-  playSong();
+    var audio = $('#audio');
+    audio.attr('src', song);
+    playSong();
 }
 
 /************************End ***************************************/
@@ -61,24 +71,24 @@ function updateAudioSource(song) {
 /*````````````````````````````````````````````````````````````````````````````*/
 // change current song to the next song
 $('.fa-step-forward').on('click', function() {
-  pauseSong();
-  var totalSong = currentSongPlayList.length;
-  currentSong += 1;
-  console.log("current song  = " + currentSong);
-  if(shuffleSong == 1) {
-    currentSong = rendomSongNum();
-  }
-  else if( currentSong < totalSong) {
-    ;
-  } else {
-    if(repeatSong == 1) { // repeat the song list again
-        currentSong = 0;
-    } else {
-        currentSong = totalSong - 1;
+    pauseSong();
+    var totalSong = currentSongPlayList.length;
+    currentSong += 1;
+    if(shuffleSong == 1) {
+      currentSong = rendomSongNum();
     }
-  }
-  var song  = '/songs/' + currentSongPlayList[currentSong];
-  updateAudioSource(song);
+    else if( currentSong < totalSong) {
+      ;
+    } else {
+      if(repeatSong == 1) { // repeat the song list again
+          currentSong = 1;
+      } else {
+          currentSong = totalSong - 1;
+      }
+    }
+    var song  = currentSongPlayList[currentSong].songURL;
+    changeCurrentSongDetails();
+    updateAudioSource(song);
 });
 
 // change current song to the previous song
@@ -86,20 +96,20 @@ $('.fa-step-backward').on('click', function() {
   pauseSong();
   var totalSong = currentSongPlayList.length;
   currentSong -= 1;
-  console.log("current song  = " + currentSong);
   if(shuffleSong == 1) {
     currentSong = rendomSongNum();
   }
-  else if( currentSong >= 0) {
+  else if( currentSong >= 1) {
     ;
   } else {
     if(repeatSong == 1) { // repeat the song list again
         currentSong = totalSong - 1;
     } else {
-        currentSong = 0;
+        currentSong = 1;
     }
   }
-  var song  = '/songs/' + currentSongPlayList[currentSong];
+  var song  = currentSongPlayList[currentSong].songURL;
+  changeCurrentSongDetails();
   updateAudioSource(song);
 });
 
@@ -134,13 +144,19 @@ $('.fa-random').on('click', function() {
 
 //this event will fire when user clicks on the song row itself in the song list
 $('.song_list table tbody tr').on('click', function() {
-  var currentSong = $(this).find(':first-child').text() - 1;
-  var song  = '/songs/' + currentSongPlayList[currentSong];
+  currentSong = $(this).find(':first-child').text();
+  var song  = currentSongPlayList[currentSong].songURL;
   // updateAudioSource(song);
   var audio = document.querySelector('audio');
   var currentSongSource = audio.src;
+  changeCurrentSongDetails();
+
+  currentSongSource = currentSongSource.replace(/%20/g,' ');
+  // spaces are replaced by %20 in the url by defalut therefore it should be
+  // removed to find match
 
   if (currentSongSource.search(song) == -1) {
+
     audio.src = song;
   }
   toggleSong();
@@ -189,7 +205,7 @@ function fancyTimeFormat(time)
 
 
 function rendomSongNum() {
-  var min = 0;
+  var min = 1;
   var max = currentSongPlayList.length - 1;
   return (Math.floor(Math.random() * (max - min + 1)) + min);
 }
@@ -223,13 +239,14 @@ function updateCurrentTime(flag){
           ;
       } else {
         if(repeatSong == 1) { // repeat the song list again
-            currentSong = 0;
+            currentSong = 1;
         } else {
             currentSong = totalSong - 1;
             return;
         }
       }
-      var song  = '/songs/' + currentSongPlayList[currentSong];
+      var song  = currentSongPlayList[currentSong].songURL;
+      changeCurrentSongDetails();
       updateAudioSource(song);
     }
 }
