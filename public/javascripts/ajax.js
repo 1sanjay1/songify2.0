@@ -1,5 +1,20 @@
 $(document).ready(function() {
 
+    //this event will fired when mouse is clicked on language
+    // $('.song_list_wrapper .list-header .right-side a').on('click', function() {
+    //       var currentPageLocation = window.location.href;
+    //       console.log(currentPageLocation);
+    //       var lang = $(this).text();
+    //       console.log(lang);
+    //       var fullURL = currentPageLocation + lang;
+    //       console.log(fullURL);
+    //       $(this).text('english');
+    //       $(this).attr('href', fullURL);
+    //       //window.location.assign(fullURL);
+    // });
+
+
+    //this event will be fired when a album is clicked
     $('.song-list .song-item .single-song > div').on('click', function() {
 
           var title = $(this).find('a').text().split(/\s+/); //remove spaces

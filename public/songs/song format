@@ -1,0 +1,21 @@
+[
+  {title : '1921', imageURL : 'https://www.songsmp3.co/assets/images/1/93826-Sunn%20Le%20Zara%20(1921).JPG', director : 'Abhishek Verma'},
+  {song_title : 'Meri Dua', singer : 'Armaan Malik,Vikram Bhatt and Karan Kundrra', songURL : '/songs/hindi/1921/Meri Dua.mp3', duration : '3:11'},
+  {song_title : 'Sunn Le Zara', singer : 'Arnab Dutta,Harish Sagane,Vikram', songURL : '/songs/hindi/1921/Sunn Le Zara.mp3', duration : '3:01'}
+];
+
+[
+	{title : 'Justin Bieber', imageURL : 'https://www.famousbirthdays.com/headshots/justin-bieber-2.jpg', director : 'the rock'}
+	
+	{song_title : 'Boyfriend', singer : 'Justin Bieber', songURL : '/songs/english/JustinBieber/Boyfriend.mp3', duration : '3:30'}
+
+
+	{song_title : 'Despacito', singer : 'ft Luis Fonsi, Justin Bieber', songURL : '/songs/english/JustinBieber/Despacito ft Luis Fonsi & Daddy Yankee Pop.mp3', duration : '3:50'}
+
+	{song_title : 'Let Me Love You Ft Justin Bieber', singer : 'Justin Bieber', songURL : '/songs/english/JustinBieber/Let Me Love You Ft Justin Bieber.mp3', duration : '3:25'}
+
+	{song_title : 'Sorry (Purpose The Movement)', singer : 'Justin Bieber', songURL : '/songs/english/JustinBieber/Sorry (Purpose The Movement).mp3', duration : '3:25'}
+
+	{song_title : 'Baby ft Ludacris', singer : 'Justin Bieber', songURL : '/songs/english/JustinBieber/Baby ft Ludacris.mp3', duration : '3:44'}
+
+]

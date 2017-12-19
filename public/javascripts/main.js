@@ -14,7 +14,7 @@ window.onload = function() {
 /*this function changes the current song details and show at bottom of the page
 in the left side */
 function changeCurrentSongDetails() {
-    console.log("currentSong = " + currentSong);
+
     var song_title = currentSongPlayList[currentSong].song_title;
     var imageURL = currentSongPlayList[0].imageURL;
     var albumName = currentSongPlayList[0].title;
@@ -156,7 +156,7 @@ $('.song_list table tbody tr').on('click', function() {
   // removed to find match
 
   if (currentSongSource.search(song) == -1) {
-
+    pauseSong();  //first apply clearInterval to stop infinite setInterval loop
     audio.src = song;
   }
   toggleSong();
@@ -213,7 +213,7 @@ function rendomSongNum() {
 //updates the current time and the duration of the songs.
 //flag is used for first time updation
 function updateCurrentTime(flag){
-    console.log('this is awesome ');
+
     var song = document.querySelector('audio');
     var currentTime = Math.floor(song.currentTime);//removes digits present after decimal
     var duration = Math.floor(song.duration);//same as above
@@ -226,7 +226,7 @@ function updateCurrentTime(flag){
     $('.song-duration').text(duration);
     Progressbar(bar);
     if( currentTime!= "0:00" && currentTime == duration) {
-      console.log("song has been completed..");
+
       $('.play-icon').removeClass('fa-pause').addClass('fa-play');
       clearInterval(IntervalId);
 

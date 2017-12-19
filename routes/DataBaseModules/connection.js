@@ -7,7 +7,7 @@ var con = mysql.createConnection({
   "database" : "songify"
 });
 
-con.connect(function() {
+con.connect(function(err) {
   if(err) {
     console.log("Error : Connectiong to databse");
     return;
