@@ -36,7 +36,7 @@
             <!-- top of the song list where links are given -->
             <div class="list-header">
                 <div class="left-side">
-                    <span><a href="#">New Releases</a></span>
+                    <span><a href="/new_release">New Releases</a></span>
                     <span><a href="#">Top Lists</a></span>
                     <span><a href="#">Featured</a></span>
                 </div>
@@ -53,7 +53,7 @@
                   <img class="img-fluid img-style rounded" src="<%= songObj[0].imageURL %>">
                 </div>
                 <div class="song_details" style="">
-                  <h4> <%= songObj[0].title %></h4>
+                  <h4 style="text-transform : capitalize;"> <%= songObj[0].title %></h4>
                   <p><small><%= songObj[0].director %></small></p>
 
                   <div class="play-button">

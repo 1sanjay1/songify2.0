@@ -25,16 +25,13 @@ router.use(function(req, res) {
     }
     else if( req.method == 'GET' && req.url == '/category') {
         db.getCategoryList(res);
-        //res.render('category', {category : 'successful'});
-     }
-     else if (req.method == 'GET' && arg1 == 'category') {
-        console.log("title = " + title);
-        console.log("this is awesomme bro.............sdfsfd      sdfsdf        ");
+    }
+    else if (req.method == 'GET' && arg1 == 'category') {
         db.getCategorySongs(res, title);
-     }
-    // else if( req.method == 'GET' && page == 'album') {
-    //     db.getAlbum(title.replace(/-/g,' '), res);
-    // }
+    }
+    else if (req.method == 'GET' && req. url == '/new_release') {
+        db.getNewReleaseSongs(res);
+    }
     else {
         res.render('dummy',{msg : "error"});
         res.end();

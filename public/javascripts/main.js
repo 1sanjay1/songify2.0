@@ -1,5 +1,10 @@
 var currentSong = 1;
 
+// window.onkeydown = function(e) {
+//   return !(e.keyCode == 32);
+// };
+
+
 ////Initialization of the app with default settings
 window.onload = function() {
 
@@ -166,8 +171,10 @@ $('.song_list table tbody tr').on('click', function() {
 
 //function to manage the play and pause functionality using the spacebar(keyboard keys)
 $('body').on('keypress',function(event){
+
     var target = event.target;
     if(event.keyCode == 32 && target.tagName!='INPUT') {
+      event.preventDefault(); //stop scrolling of the page when spacebar is clicked
       toggleSong();
     }
 });
