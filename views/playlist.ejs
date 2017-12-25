@@ -12,6 +12,7 @@
 
     <!-- Custom css -->
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"></link>
+
   </head>
 
   <body>
@@ -26,7 +27,7 @@
       <div class="row each-song-item">
         <div class="col-md-2"></div>
 
-        <div class="col-md-8 default" style="margin-top: 0px; border: 1px solid #f6f6f6;">
+        <div class="col-md-8 default" style="margin-top: 0px; border: px solid #f6f6f6;">
           <!-- song playlist : show all the songs after selecting a perticular album or category -->
 
           <div class="song_list_wrapper">
@@ -40,7 +41,7 @@
                     <span><a href="#">Featured</a></span>
                 </div>
                 <div class="right-side" style="position: absolute; right: 0;">
-                    <span><a href="#">Hindi</a></span>
+                    <span><a href="#">share</a></span>
                 </div>
             </div>
             <hr style="background: rgba(255,255,255,0.5);">
@@ -87,7 +88,30 @@
               </table>
             </div>
 
+            <hr style="background: rgba(255,255,255,0.5);">
+
+            <div class="dynamic-footer">
+
+
+              <div id="fb-root"></div>
+              <script>(
+                      function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+                          fjs.parentNode.insertBefore(js, fjs);
+                      }(document, 'script', 'facebook-jssdk')
+                );
+              </script>
+
+              <%  var fullURL = "http://localhost:3000/album/" + songObj[0].title.replace(/ /g, '-'); %>
+              <div class="fb-comments" data-href="<%= fullURL %>" data-width="100%" data-numposts="3" data-colorscheme="dark" ></div>
+            </div>
+
           </div>
+
+
 
           <!-- <% include templates/listOfSongs.ejs %> -->
         </div>

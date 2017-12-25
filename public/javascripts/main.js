@@ -11,6 +11,8 @@ window.onload = function() {
     audio.attr('src', song);
     changeCurrentSongDetails();
 
+    $('._3-8m').addClass('comment-design');
+
 /*this function changes the current song details and show at bottom of the page
 in the left side */
 function changeCurrentSongDetails() {

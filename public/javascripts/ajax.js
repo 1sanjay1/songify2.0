@@ -14,7 +14,18 @@ $(document).ready(function() {
     // });
 
 
-    //this event will be fired when a album is clicked
+    //this function will be fired when user cliks on the category page elements
+    $('.song-category .song-category-all .category a').on('click' , function() {
+        var ref = $(this).attr('href');
+        var url = window.location.href;
+        var fullURL = url + ref;
+        window.location.assign(fullURL);
+      //  window.location.replace(fullURL);
+        return true;
+    });
+
+
+    //this event will be fired when an album is clicked
     $('.song-list .song-item .single-song > div').on('click', function() {
 
           var title = $(this).find('a').text().split(/\s+/); //remove spaces
@@ -30,9 +41,9 @@ $(document).ready(function() {
 
           var ref = $(this).find('a').attr('href');
 
-          var lan = $('.list-header .right-side a').text();
+          //var lan = $('.list-header .right-side a').text();
 
-          var fullURL = lan + ref + '/' + title;
+          var fullURL = ref + '/' + title;
 
           window.location.assign(fullURL);   //usign this we can navigate to the previous page
           //window.location.replace(fullURL);//but in this case we can't

@@ -9,7 +9,7 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
   if(err) {
-    console.log("Error : Connectiong to databse");
+    console.log("Error : Connecting to databse");
     return;
   } else {
     console.log("Connection is established with databse");

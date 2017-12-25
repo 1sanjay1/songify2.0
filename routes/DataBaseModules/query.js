@@ -1,5 +1,4 @@
 var con = require('./connection');
-var Q = require('Q');
 
 //get home page with all albums
 var getHomePage = function(res) {
@@ -12,7 +11,7 @@ var getHomePage = function(res) {
             res.render('index', { title: "Home", listOfAlbums : result });
         }
     });
-}
+};
 
 //get list of songs for a perticular album or movie
 var getAlbum = function(title, res) {
@@ -48,7 +47,52 @@ var getAlbum = function(title, res) {
         }
     });
 
-}
+};
+
+//get list of categories of songs
+var getCategoryList = function (res) {
+
+    var query = "SELECT imageURL, name FROM category";
+    con.query(query, function(err, result) {
+        if(err) {
+            console.log("Error : performing query with category table ");
+        }
+        else {
+            console.log(result);
+            res.render('category', {categoryObj : result});
+        }
+    });
+
+};
+
+//get all the songs which are related to a perticular category
+var getCategorySongs = function(res, title) {
+
+    var query = "SELECT title as song_title, singer, location as songURL, duration FROM song WHERE id IN ( SELECT song_id FROM category_song WHERE category_id = ( SELECT id FROM category WHERE name = ?))";
+
+    con.query(query, title, function(err, result) {
+        if(err) {
+            console.log("Error : performing query with category song table ");
+        }
+        else {
+            // var dummyObj = {title : 'Romance', imageURL : '', director : 'sannay raz'};
+
+            var secondQuery = "SELECT name, imageURL FROM category WHERE title = ?";
+            con.query(secondQuery, title, function(err, result2) {
+                if(err) {
+                    console.log("Error : performing query with category table");
+                }
+                else {
+                    result.splice(0,0, result2);
+                    res.render('playlist', {songObj : result});
+                }
+            });
+        }
+    });
+
+};
 
 module.exports.getAlbum = getAlbum;
 module.exports.getHomePage = getHomePage;
+module.exports.getCategoryList = getCategoryList;
+module.exports.getCategorySongs = getCategorySongs;

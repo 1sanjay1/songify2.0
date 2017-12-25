@@ -16,6 +16,11 @@
     <!-- Custom css -->
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"></link>
 
+    <style>
+
+
+
+    </style>
 
   </head>
 
@@ -51,37 +56,29 @@
               <hr style="background: rgba(255,255,255,0.5);">
               <!-- end top of the list  -->
 
-              <div class="song-list">
-                  <div class="song-item">
+              <div class="song-category">
 
-                      <div class="all-songs">
-                        <% for(var i = 0; i < listOfAlbums.length; i++) { %>
+                  <div class="song-category-all" id="category-list">
 
-                          <div class="single-song" id="mobile-device" >
-                              <div style="cursor: pointer">
-                                <img class="rounded" src='<%= listOfAlbums[i].imageURL %>' style="width: 100%; height: 100px;">
-                                <p><strong><a href="/album">      <%= listOfAlbums[i].title %>        </a></strong></p>
-                                <p><small><%= listOfAlbums[i].director %></small></p>
-                              </div>
-                          </div>
+                  <%  len = categoryObj.length;
+                      for(var i = 0; i < len; i++) {  var val = 'category' %>
 
-                        <% } %>
+                        <div class="category">
+                          <a href="<%= '/category/' + categoryObj[i].name %>">
+                            <div class="category-data rounded" style="position: relative;">
+                                <img src="<%= categoryObj[i].imageURL %>" class="rounded" style="">
+                                <span style="position: absolute; top: 33%; left: 10%; color: #ffffff; text-transform: uppercase; font-weight: bold;"><%= categoryObj[i].name %></span>
+                            </div>
+                          </a>
+                        </div>
 
-                      </div>
+                      <% } %>
 
                   </div>
+
               </div>
 
           </div>
-
-          <!-- <div class="song_list_wrapper">
-
-              <div class="song-list">
-                  <h1>this is awesome</h1>
-              </div>
-
-          </div> -->
-
 
         </div>
 
